@@ -6,14 +6,15 @@
     @if(session('sukses'))
     @endif
     <div class="row">
-    <h2>Selamat Datang!Silahkan Isi Data Siswa</h2>
+    <h2>Pendaftaran</h2>
     <div class="col-6">
                 <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">
-         Tambah Data 
+            <button style="margin-left:980px;" type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#exampleModal">
+         Daftar 
             </button>
-            <table class="table table-bordered">
+            <table style="margin-top:20px;" class="table table-bordered">
         <tr>
+            <th>No</th>
             <th>Nis</th>
             <th>Nama </th>
             <th>Jenis Kelamin</th>
@@ -27,6 +28,7 @@
         </tr>
 @foreach($siswa as $siswa)
 <tr>
+    <td>{{$loop->iteration}}</td>
     <td>{{$siswa->nis}}</td>
     <td>{{$siswa->nama}}</td>
     <td>{{$siswa->jeniskelamin}}</td>
@@ -40,8 +42,7 @@
     <td>
         
         <a href="/siswa/{{$siswa->id}}/delete" class="btn btn-danger btn-sn" onclick="return confrim('Apakah Yakin Data Akan DiHapus')">Hapus</a>
-    </td>
-      <td>      
+    </td>     
   
   </tr>
 @endforeach
@@ -110,7 +111,7 @@
                 </select>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
-                <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="submit" class="btn btn-success">Simpan</button>
                 </form>
                 </div>
             </div>
